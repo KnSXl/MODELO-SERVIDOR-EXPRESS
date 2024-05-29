@@ -84,7 +84,7 @@ app.post('/users', upload.none(), (req, res) => {
     const { name, email, password } = req.body
 
     if (!name || !email || !password) {
-        res.status(400).json({ message: "Por favor, forneça name, email e password" })
+        return res.status(400).json({ message: "Por favor, forneça name, email e password" })
     }
     const novoUsuario = {
         id: banco.users.length + 1,
