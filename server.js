@@ -52,7 +52,7 @@ const storage = multer.diskStorage({
 // Deixa a pasta estatica
 app.use('/uploads', express.static('uploads'));
 
-const upload = multer({ storage: storage });
+const request = multer({ storage: storage });
 
 // Middlewares
 app.use(express.json()); // Para parsear o corpo da requisição como JSON
@@ -80,7 +80,7 @@ app.get('/users/:id', (req, res) => {
 });
 
 // Rota para adicionar um novo usuário
-app.post('/users', upload.none(), (req, res) => {
+app.post('/users', request.none(), (req, res) => {
     const { name, email, password } = req.body
 
     if (!name || !email || !password) {
@@ -99,7 +99,7 @@ app.post('/users', upload.none(), (req, res) => {
 });
 
 // Rota para fazer upload de arquivos de avatar com o ID do usuário
-app.post('/users/upload/:id', upload.single('file'), (req, res) => {
+app.post('/users/upload/:id', request.single('file'), (req, res) => {
     const userId = parseInt(req.params.id);
     const usuario = banco.users.find(user => user.id === userId);
     const type = req.body.type;
@@ -116,7 +116,7 @@ app.post('/users/upload/:id', upload.single('file'), (req, res) => {
 
 
 // Rota para atualizar um usuário existente (substituindo todos os campos)
-app.put('/users/:id', upload.none(), (req, res) => {
+app.put('/users/:id', request.none(), (req, res) => {
     const userId = parseInt(req.params.id);
     const index = banco.users.findIndex(user => user.id === userId);
 
@@ -130,7 +130,7 @@ app.put('/users/:id', upload.none(), (req, res) => {
 });
 
 // Rota para atualizar parcialmente um usuário pelo ID (atualizando apenas os campos enviados)
-app.patch('/users/:id', upload.none(), (req, res) => {
+app.patch('/users/:id', request.none(), (req, res) => {
     const userId = parseInt(req.params.id);
     const index = banco.users.findIndex(user => user.id === userId);
 
