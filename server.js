@@ -10,7 +10,7 @@ const app = express();
 
 // Configurações de porta e IP
 const port = 3000;
-const ip = '123.123.123.123'; // Trocar IP
+// const ip = '123.123.123.123'; // Trocar IP
 
 // Configuração do multer para o destino dos uploads
 const storage = multer.diskStorage({
@@ -162,9 +162,9 @@ function atualizarBanco() {
 }
 
 // Inicialização do servidor
-app.listen(port, ip, () => {
+/* app.listen(port, ip, () => {
     console.log(`Servidor rodando em http://${ip}:${port}`);
-});
+}); */
 
 // Inicialização do servidor (usando localhost)
 app.listen(port, () => {
