@@ -1,22 +1,21 @@
-const express = require('express'); // Para criar o servidor
-const cors = require('cors'); // Para habilitar o CORS
-const routes = require('./routes/routes'); // Importar rotas de exemplo
-const { port, ip } = require('./config/config') // Configurações de porta e IP
+const express = require('express');
+const cors = require('cors');
+const routes = require('./routes/routes');
+const { port, ip } = require('./config/config')
 
-// Inicialização do servidor Express
 const app = express();
 
-app.use(express.json()); // Para parsear o corpo da requisição como JSON
-app.use(cors()); // Para habilitar o CORS
-app.use('/uploads', express.static('uploads')); // Deixa a pasta estatica
+app.use(express.json());
+app.use(cors());
+app.use('/uploads', express.static('uploads'));
 
 // Rota principal
 app.get('/', (req, res) => {
     res.json('Server Running!');
 });
 
-// Usar as rotas de exemplo
-app.use('/examples', routes); // Adicione novas rotas aqui
+// Usar as rotas de exemplos
+app.use('/examples', routes);
 
 // Inicialização do servidor
 app.listen(port, ip, () => {
