@@ -26,21 +26,23 @@ O servidor estará disponível em http://localhost:3000/ por padrão.
 
 O servidor oferece os seguintes endpoints:
 
-- **GET /examples**: Retorna uma lista de todos os exemplos.
-- **GET /examples/:id**: Retorna os detalhes de um exemplo específico com base no ID.
-- **POST /examples**: Adiciona um novo exemplo.
-- **PUT /examples/:id**: Atualiza os detalhes de um exemplo existente substituindo todos os campos.
-- **PATCH /examples/:id**: Atualiza parcialmente os detalhes de um exemplo existente.
-- **DELETE /examples/:id**: Exclui um exemplo.
+- **GET /users**: Retorna uma lista de todos os usuários.
+- **GET /users/:id**: Retorna os detalhes de um usuário específico com base no ID.
+- **POST /users**: Adiciona um novo usuário.
+- **PUT /users/:id**: Atualiza os detalhes de um usuário existente substituindo todos os campos.
+- **PATCH /users/:id**: Atualiza parcialmente os detalhes de um usuário existente.
+- **DELETE /users/:id**: Exclui um usuário.
 
 Para mais detalhes sobre cada rota e seus parâmetros, consulte o código-fonte do servidor.
 
 ## Upload de Arquivos
 
-O servidor também oferece suporte ao upload de arquivos. Você pode fazer upload de uma imagem primaria ou secundaria para um exemplo específico. Para isso, utilize a rota:
+O servidor também oferece suporte ao upload de arquivos de avatar. Você pode fazer upload de uma imagem de perfil ou de capa para um usuário específico. Para isso, utilize a rota:
 
-- **POST /examples/upload/:id**: Faz upload de um arquivo para um exemplo específico. Certifique-se de incluir o parâmetro de ID do exemplo na URL da requisição e enviar a imagem como um arquivo com o campo 'file' no corpo da requisição.
+- **POST /users/upload/:id**: Faz upload de um arquivo de avatar para um usuário específico. Certifique-se de incluir o parâmetro de ID do usuário na URL da requisição e enviar a imagem de avatar como um arquivo com o campo 'file' no corpo da requisição.
 
-Certifique-se de que as permissões de escrita estejam configuradas corretamente na pasta de uploads para que o servidor possa salvar os arquivos.
+Certifique-se de que as permissões de escrita estejam configuradas corretamente na pasta de uploads para que o servidor possa salvar os arquivos de avatar.
+
+### Link para os Métodos HTTP no Postman: [Clique aqui](https://www.postman.com/cespro/workspace/testes-http/collection/34144524-08a82527-6498-4a9a-b931-3ef907e27337?action=share&creator=34144524)
 
 Divirta-se usando o servidor!

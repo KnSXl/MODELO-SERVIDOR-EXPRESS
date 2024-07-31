@@ -1,30 +1,28 @@
-const express = require('express');
-const multer = require('multer');
-const controllers = require('../controllers/controllers');
-const upload = require('../middlewares/fileUpload');
+const express = require('express'); // Importa o Express
+const controller = require('../controllers/controller'); // Importa o controlador
+const request = require('../middleware/multerConfig'); // Importa a configuração do middleware para uploads
 
-const request = multer();
-const router = express.Router();
+const router = express.Router(); // Cria uma instância do roteador Express
 
-// Rota para listar todos os exemplos
-router.get('/', controllers.listExamples);
+// Rota GET para listar todos os usuários
+router.get('/users/', controller.listUser);
 
-// Rota para obter um exemplo por ID
-router.get('/:id', controllers.getExampleById);
+// Rota GET para obter um usuário específico por ID
+router.get('/users/:id', controller.getUser);
 
-// Rota para adicionar um novo exemplo
-router.post('/', request.none(), controllers.addExample);
+// Rota POST para adicionar um novo usuário
+router.post('/users/', request.none(), controller.addUser);
 
-// Rota para fazer upload de arquivos com o ID do exemplo
-router.post('/upload/:id', upload.single('file'), controllers.uploadFile);
+// Rota POST para upload de arquivo para um usuário específico
+router.post('/users/upload/:id', request.single('file'), controller.upload);
 
-// Rota para atualizar um exemplo existente
-router.put('/:id', request.none(), controllers.updateExample);
+// Rota PUT para atualizar um usuário específico por ID
+router.put('/users/:id', request.none(), controller.updateUser);
 
-// Rota para atualizar parcialmente um exemplo pelo ID
-router.patch('/:id', request.none(), controllers.partialUpdateExample);
+// Rota PATCH para atualização parcial de um usuário específico por ID
+router.patch('/users/:id', request.none(), controller.partialUpdateUser);
 
-// Rota para excluir um exemplo
-router.delete('/:id', controllers.deleteExample);
+// Rota DELETE para remover um usuário específico por ID
+router.delete('/users/:id', controller.deleteUser);
 
-module.exports = router;
+module.exports = router; // Exporta o roteador para ser usado em outros arquivos

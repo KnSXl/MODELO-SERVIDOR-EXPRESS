@@ -1,5 +1,8 @@
-// Configurações de porta e IP
-const port = 3000;
-const ip = '123.123.123.123'; // Trocar IP se necessário
+const port = 3000; // Porta do servidor
+const ip = '123.123.123.123'; // Endereço IP do servidor
 
-module.exports = { port, ip };
+// Exporta a configuração de porta e IP
+module.exports = {
+    port,
+    ip
+}
