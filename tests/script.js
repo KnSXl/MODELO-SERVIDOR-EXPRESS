@@ -1,7 +1,8 @@
-const axios = require("axios");
+const axios = require('axios')
 const FormData = require("form-data");
 const fs = require("fs");
-const baseURL = "http://localhost:3000";
+const { port, ip } = require('../src/config/config')
+const baseURL = `http://${ip}:${port}`;
 
 // Função para listar todos os usuários
 const getUsers = async () => {
