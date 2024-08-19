@@ -1,5 +1,5 @@
-const database = require('../database/database.json');
-const { port } = require('../config/config');
+const database = require('../database/usersDatabase.json');
+const { port } = require('../config/usersConfig');
 const fs = require('fs');
 
 const listUsers = (req, res) => {
@@ -90,7 +90,7 @@ const upload = (req, res) => {
 };
 
 const updateDatabase = () => {
-    fs.writeFileSync(__dirname + '/../database/database.json', JSON.stringify(database, null, 4));
+    fs.writeFileSync(__dirname + '/../database/usersDatabase.json', JSON.stringify(database, null, 4));
 };
 
 module.exports = {
