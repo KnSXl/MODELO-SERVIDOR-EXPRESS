@@ -14,7 +14,7 @@ app.use('/uploads', express.static('uploads'));
 
 app.use(usersRoutes);
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.json('Server Running!'); 
 });
 

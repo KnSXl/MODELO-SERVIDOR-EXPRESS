@@ -1,5 +1,5 @@
 const database = require('../database/usersDatabase.json');
-const { port } = require('../config/usersConfig');
+const { usersPort } = require('../config/usersConfig');
 const fs = require('fs');
 
 const listUsers = (req, res) => {
@@ -83,7 +83,7 @@ const upload = (req, res) => {
         res.status(404).json({ message: 'User not found' });
     } else {
         const folderName = type === 'profile' ? 'profile_picture' : 'cover_picture';
-        user[folderName] = `http://localhost:${port}/uploads/${userId}/${folderName}/${req.file.filename}`;
+        user[folderName] = `http://localhost:${usersPort}/uploads/${userId}/${folderName}/${req.file.filename}`;
         updateDatabase();
         res.json({ message: `${type === 'profile' ? 'Profile' : 'Cover'} picture successfully updated` });
     }
