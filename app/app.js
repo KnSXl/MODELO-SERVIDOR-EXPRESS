@@ -19,8 +19,8 @@ app.get('/api', (req, res) => {
 });
 
 app.listen(usersPort, ip, () => {
-    console.log(`Users server running at http://${ip}:${usersPort}`);
+    console.log(`Users server running at http://${ip}:${usersPort}/api/users`);
 });
 app.listen(usersPort, () => {
-    console.log(`Users server running at http://localhost:${usersPort}`);
+    console.log(`Users server running at http://localhost:${usersPort}/api/users`);
 });
