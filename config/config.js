@@ -1,4 +1,4 @@
-const ip = '123.123.123.123';
+const ip = '0.0.0.0';
 
 module.exports = {
     ip
