@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 
-const usersRoutes = require('../routes/usersRoutes');
+const usersRoutes = require('./routes/usersRoutes');
 
-const { ip } = require('../config/config');
-const { usersPort } = require('../config/usersConfig');
+const { ip } = require('./config/config');
+const { usersPort } = require('./config/usersConfig');
 
 const app = express();
 
